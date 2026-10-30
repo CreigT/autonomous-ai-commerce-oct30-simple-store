@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Commerce Store | Autonomous AI Agents</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --accent: #3b82f6;
+      --accent2: #10b981;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+    .logo { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+    nav a { color: var(--muted); margin-left: 20px; text-decoration: none; }
+    nav a:hover { color: var(--text); }
+    .hero { text-align: center; padding: 80px 20px; }
+    .hero h1 { font-size: 3rem; margin-bottom: 16px; }
+    .hero p { font-size: 1.25rem; color: var(--muted); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .btn { display: inline-block; background: var(--accent); color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; border: none; cursor: pointer; }
+    .btn:hover { background: #2563eb; }
+    .btn-secondary { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+    .section { padding: 60px 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .card { background: var(--card); padding: 24px; border-radius: 12px; }
+    .card h3 { margin-bottom: 8px; }
+    .price { font-size: 1.5rem; font-weight: 700; color: var(--accent2); margin: 12px 0; }
+    .locked { opacity: 0.6; position: relative; }
+    .locked::after { content: "\ud83d\udd12 Premium"; position: absolute; top: 12px; right: 12px; background: #ef4444; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; }
+    .paywall { background: linear-gradient(135deg, #1e3a8a, #1e293b); padding: 40px; border-radius: 16px; text-align: center; margin: 40px 0; }
+    .status { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin: 20px 0; }
+    .agent-status { background: var(--card); padding: 12px 16px; border-radius: 8px; font-size: 0.9rem; }
+    .agent-status span { color: var(--accent2); }
+    footer { text-align: center; padding: 40px 0; color: var(--muted); border-top: 1px solid #334155; margin-top: 60px; }
+    @media (max-width: 600px) { .hero h1 { font-size: 2rem; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo" id="store-name">AI Commerce</div>
+      <nav>
+        <a href="#products">Products</a>
+        <a href="#how">How It Works</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1 id="hero-title">Autonomous AI Commerce. Zero Human Involvement.</h1>
+      <p id="tagline">Specialized AI agents run every function 24/7. You are the legal owner. Everything else is automated.</p>
+      <a href="#products" class="btn">Browse AI-Generated Products</a>
+      <a href="#how" class="btn btn-secondary" style="margin-left:12px">See the Agents</a>
+    </section>
+
+    <div class="status">
+      <div class="agent-status">CEO Agent: <span>Active</span></div>
+      <div class="agent-status">Sales Agent: <span>Optimizing</span></div>
+      <div class="agent-status">Support Agent: <span>Standing by</span></div>
+      <div class="agent-status">Finance Agent: <span>Balanced</span></div>
+    </div>
+
+    <section id="how" class="section">
+      <h2 style="text-align:center; margin-bottom:32px;">How the Autonomous System Works</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>1. Product Research Agent</h3>
+          <p>Scans markets, trends, and competitors daily to propose high-margin digital products.</p>
+        </div>
+        <div class="card">
+          <h3>2. Creation & Pricing Agents</h3>
+          <p>Generate product copy, pricing strategy, and listings automatically.</p>
+        </div>
+        <div class="card">
+          <h3>3. Sales & Support Agents</h3>
+          <p>Handle marketing, checkout, customer questions, and refunds with zero human touch.</p>
+        </div>
+        <div class="card">
+          <h3>4. Finance & Compliance</h3>
+          <p>Track revenue, forecast cash, prepare taxes, and ensure regulatory compliance.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="section">
+      <h2 style="text-align:center; margin-bottom:32px;">Today's AI-Curated Products</h2>
+      <div class="grid" id="product-grid"></div>
+    </section>
+
+    <div class="paywall" id="paywall">
+      <h2>Unlock the Full Autonomous Suite</h2>
+      <p style="margin:16px 0; color:var(--muted);">Free tier shows 1 product. Premium gives full agent access, unlimited products, and priority support.</p>
+      <p style="font-size:2rem; font-weight:700; margin:16px 0;">$29<span style="font-size:1rem;">/month</span></p>
+      <button class="btn" id="upgrade-btn">Upgrade Now — Reasonable Paywall</button>
+      <p style="margin-top:12px; font-size:0.85rem; color:var(--muted);">Secure checkout via Stripe. Cancel anytime. No hidden fees.</p>
+    </div>
+
+    <section class="section">
+      <h2 style="text-align:center; margin-bottom:24px;">Simple. Effective. For Everyone.</h2>
+      <div class="card" style="max-width:700px; margin:0 auto;">
+        <p><strong>Edit only the CONFIG block at the top of this HTML file.</strong> Change store name, products, prices, and your Stripe payment link. Then push to GitHub and deploy on Vercel. No other changes required.</p>
+        <p style="margin-top:12px;">All agent logic, workflows, and autonomy blueprints live in the accompanying documentation. This storefront is the customer-facing surface that runs continuously.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p id="footer-text">© 2026 Autonomous AI Commerce System. Operated entirely by AI agents.</p>
+      <p style="margin-top:8px;">Legal owner retains full override. Emergency contact: support email in config.</p>
+    </footer>
+  </div>
+
+  <script>
+    // ========== EDIT ONLY THIS CONFIG BLOCK ==========
+    const CONFIG = {
+      storeName: "AI Nexus Commerce",
+      tagline: "Fully autonomous AI agents run your store 24/7. You own it. They operate it.",
+      heroTitle: "Autonomous AI Commerce Store",
+      supportEmail: "owner@example.com",
+      stripePaymentLink: "https://buy.stripe.com/test_example", // Replace with your real Stripe Payment Link
+      freeTierProductCount: 1,
+      products: [
+        {
+          name: "AI Prompt Pack for E-commerce",
+          price: 19,
+          description: "50 battle-tested prompts for product descriptions, ads, and emails. Generated by the Content Agent.",
+          locked: false
+        },
+        {
+          name: "Complete Multi-Agent Blueprint",
+          price: 49,
+          description: "Full architecture for CEO, Sales, Support, Finance, and Legal agents. Ready for implementation.",
+          locked: true
+        },
+        {
+          name: "Autonomous Pricing Optimizer",
+          price: 39,
+          description: "Agent-driven dynamic pricing based on demand, competition, and inventory signals.",
+          locked: true
+        },
+        {
+          name: "Customer Success Playbook",
+          price: 29,
+          description: "Templates and agent workflows for retention, loyalty, and reputation management.",
+          locked: true
+        }
+      ]
+    };
+    // ========== END CONFIG ==========
+
+    document.getElementById("store-name").textContent = CONFIG.storeName;
+    document.getElementById("hero-title").textContent = CONFIG.heroTitle;
+    document.getElementById("tagline").textContent = CONFIG.tagline;
+    document.getElementById("footer-text").textContent = `© 2026 ${CONFIG.storeName}. Operated by AI agents.`;
+
+    const grid = document.getElementById("product-grid");
+    CONFIG.products.forEach((p, i) => {
+      const card = document.createElement("div");
+      card.className = "card" + (p.locked && i >= CONFIG.freeTierProductCount ? " locked" : "");
+      card.innerHTML = `
+        <h3>${p.name}</h3>
+        <p>${p.description}</p>
+        <div class="price">$${p.price}</div>
+        <button class="btn" style="width:100%;" onclick="buy(${i})">${p.locked && i >= CONFIG.freeTierProductCount ? "Unlock with Premium" : "Get Instant Access"}</button>
+      `;
+      grid.appendChild(card);
+    });
+
+    function buy(index) {
+      const product = CONFIG.products[index];
+      if (product.locked && index >= CONFIG.freeTierProductCount) {
+        document.getElementById("upgrade-btn").click();
+        return;
+      }
+      if (CONFIG.stripePaymentLink && CONFIG.stripePaymentLink.includes("stripe.com")) {
+        window.open(CONFIG.stripePaymentLink + "?prefilled_email=&client_reference_id=" + encodeURIComponent(product.name), "_blank");
+      } else {
+        alert("Product unlocked! In production this would deliver the digital asset and log the sale to the Finance Agent. Replace the Stripe link in CONFIG.");
+      }
+    }
+
+    document.getElementById("upgrade-btn").addEventListener("click", () => {
+      if (CONFIG.stripePaymentLink && CONFIG.stripePaymentLink.includes("stripe.com")) {
+        window.open(CONFIG.stripePaymentLink, "_blank");
+      } else {
+        alert("Replace stripePaymentLink in the CONFIG block with your real Stripe Payment Link to enable checkout.");
+      }
+    });
+
+    setInterval(() => {
+      document.querySelectorAll(".agent-status span").forEach(el => {
+        el.style.opacity = Math.random() > 0.5 ? "1" : "0.6";
+      });
+    }, 3000);
+  </script>
+</body>
+</html>
